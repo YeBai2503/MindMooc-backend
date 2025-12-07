@@ -11,6 +11,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>services</module>
+        <module>model</module>
     </modules>
     <groupId>com.mindmooc</groupId>
 	<artifactId>backend</artifactId>

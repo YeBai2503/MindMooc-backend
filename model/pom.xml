@@ -9,13 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <packaging>pom</packaging>
-    <modules>
-        <module>business-service</module>
-        <module>ai-service</module>
-    </modules>
-
-    <artifactId>services</artifactId>
+    <artifactId>model</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -24,20 +18,10 @@
     </properties>
 
     <dependencies>
-        <!-- 服务发现 nacos -->
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
-        <!-- 服务调用 openfeign -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.mindmooc</groupId>
-            <artifactId>model</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>annotationProcessor</scope>
         </dependency>
     </dependencies>
 
