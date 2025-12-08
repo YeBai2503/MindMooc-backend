@@ -1,0 +1,24 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: business-route
+          uri: lb://mindmooc-business
+          predicates:
+            - Path=/api/business/**
+          filters:
+            - RewritePath=/api/business/?(?<segment>.*), /$\{segment}
+
+        - id: ai-route
+          uri: lb://mindmooc-ai
+          predicates:
+            - Path=/api/ai/**
+          filters:
+            - RewritePath=/api/ai/?(?<segment>.*), /$\{segment}
+
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origin-patterns: '*'
+            allowed-headers: '*'
+            allowed-methods: '*'
