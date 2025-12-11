@@ -34,6 +34,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+        <!-- model模块 -->
         <dependency>
             <groupId>com.mindmooc</groupId>
             <artifactId>model</artifactId>

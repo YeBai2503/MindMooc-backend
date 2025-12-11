@@ -6,6 +6,20 @@ spring:
   cloud:
     nacos:
       server-addr: localhost:8848
+      discovery:
+        namespace: public
 
 server:
   port: 80
+
+# JWT 配置（需要与 business-service 保持一致）
+jwt:
+  secret: MindMoocSecretKeyForJWTTokenGenerationAndValidation2026
+  
+# 不需要认证的路径
+auth:
+  skip-paths:
+    - /api/users/register
+    - /api/users/login
+    - /api/feedback
+    - /api/internal/**

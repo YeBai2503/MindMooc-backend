@@ -2,23 +2,19 @@ spring:
   cloud:
     gateway:
       routes:
+        # 业务服务路由（所有 /api/** 请求）
         - id: business-route
           uri: lb://mindmooc-business
           predicates:
-            - Path=/api/business/**
+            - Path=/api/**
           filters:
-            - RewritePath=/api/business/?(?<segment>.*), /$\{segment}
+            - StripPrefix=0  # 不剥离前缀，保持 /api 路径
 
-        - id: ai-route
-          uri: lb://mindmooc-ai
-          predicates:
-            - Path=/api/ai/**
-          filters:
-            - RewritePath=/api/ai/?(?<segment>.*), /$\{segment}
-
+      # 全局 CORS 配置
       globalcors:
         cors-configurations:
           '[/**]':
             allowed-origin-patterns: '*'
             allowed-headers: '*'
             allowed-methods: '*'
+            allow-credentials: true
