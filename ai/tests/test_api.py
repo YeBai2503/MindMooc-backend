@@ -95,7 +95,7 @@ if __name__ == "__main__":
         
     except requests.exceptions.ConnectionError:
         print("\n❌ 错误: 无法连接到 AI Service")
-        print("请确保 Flask 服务已启动（python app.py）")
+        print("请确保 Flask 服务已启动（python run.py）")
         
     except AssertionError as e:
         print(f"\n❌ 测试失败: {e}")

@@ -5,8 +5,8 @@ from flask import Flask
 import logging
 
 # 现在可以使用简化的导入路径
-from core.api import api_bp, register_health_routes
-from core.utils import setup_logger
+from app.api import api_bp, register_health_routes
+from app.utils import setup_logger
 
 # 创建 Flask 应用
 app = Flask(__name__)

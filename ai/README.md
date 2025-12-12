@@ -14,7 +14,7 @@
 
 ```
 ai/
-├── core/                          # 核心代码目录
+├── app/                          # 核心代码目录
 │   ├── api/                       # API 接口层（与 Spring Boot 对接）
 │   ├── services/                  # 业务服务层（核心处理逻辑）
 │   │   ├── task_processor.py     # 任务处理器 ✅
@@ -22,7 +22,7 @@ ai/
 │   │   └── mindmap_generator.py  # 思维导图生成 ⚠️ TODO
 │   └── utils/                     # 工具模块
 │
-├── app.py                         # Flask 主应用入口
+├── run.py                         # Flask 主应用入口
 ├── requirements.txt               # Python 依赖
 ├── start.bat / start.sh          # 一键启动脚本
 │
@@ -63,7 +63,7 @@ source venv/bin/activate
 pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 # 4. 启动服务
-python app.py
+python run.py
 ```
 
 服务将在 `http://localhost:10020` 启动。
@@ -134,7 +134,7 @@ python test_api.py
 
 ### 优先级 1: 视频处理模块
 
-编辑 `core/services/video_processor.py`:
+编辑 `app/services/video_processor.py`:
 
 - [ ] 实现视频下载功能
 - [ ] 实现音频提取功能
@@ -149,7 +149,7 @@ python test_api.py
 
 ### 优先级 2: 思维导图生成模块
 
-编辑 `core/services/mindmap_generator.py`:
+编辑 `app/services/mindmap_generator.py`:
 
 - [ ] 集成大模型 API（OpenAI/Claude/通义千问等）
 - [ ] 实现提示词构建
@@ -178,13 +178,13 @@ grep ERROR logs/ai-service.log
 
 ```python
 # 测试视频处理
-from core.services.video_processor import VideoProcessor
+from app.services.video_processor import VideoProcessor
 processor = VideoProcessor()
 result = processor.process("test_video_url")
 print(result)
 
 # 测试思维导图生成
-from core.services.mindmap_generator import MindmapGenerator
+from app.services.mindmap_generator import MindmapGenerator
 generator = MindmapGenerator()
 mindmap = generator.generate(video_data)
 print(mindmap)
@@ -196,7 +196,7 @@ print(mindmap)
 
 ```bash
 pip install gunicorn
-gunicorn -w 4 -b 0.0.0.0:10020 --timeout 300 app:app
+gunicorn -w 4 -b 0.0.0.0:10020 --timeout 300 run:app
 ```
 
 ### 使用 Docker

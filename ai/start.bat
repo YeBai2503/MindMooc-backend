@@ -45,7 +45,7 @@ echo 服务地址: http://localhost:10020
 echo 按 Ctrl+C 停止服务
 echo.
 
-python app.py
+python run.py
 
 pause
 

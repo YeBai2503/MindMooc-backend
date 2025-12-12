@@ -28,8 +28,8 @@ RUN mkdir -p uploads temp logs
 EXPOSE 10020
 
 # 设置环境变量
-ENV FLASK_APP=app.py
+ENV FLASK_APP=run.py
 ENV PYTHONUNBUFFERED=1
 
 # 启动命令（生产环境使用 Gunicorn）
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:10020", "--timeout", "300", "app:app"]
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:10020", "--timeout", "300", "run:app"]
