@@ -1,0 +1,45 @@
+# MindMOOC AI Service - Python 依赖
+
+# Flask 框架
+Flask==3.0.0
+Werkzeug==3.0.1
+
+# HTTP 请求
+requests==2.31.0
+
+# 环境变量管理（可选）
+python-dotenv==1.0.0
+
+# 日志增强（可选）
+colorlog==6.8.0
+
+# CORS 支持（如果需要跨域）
+flask-cors==4.0.0
+
+# ==========================================
+# 后续可能需要的依赖（视频处理）
+# ==========================================
+
+# 视频处理
+# opencv-python==4.8.1.78
+# moviepy==1.0.3
+
+# 音频处理
+# pydub==0.25.1
+# SpeechRecognition==3.10.0
+
+# 大模型 API
+# openai==1.3.5
+# anthropic==0.7.0
+
+# 字幕处理
+# pysrt==1.1.2
+
+# 深度学习（如果需要本地模型）
+# torch==2.1.0
+# transformers==4.35.0
+
+# 其他工具
+# numpy==1.24.3
+# pandas==2.1.3
+
